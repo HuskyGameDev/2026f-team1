@@ -73,8 +73,4 @@ offset_top = -0.040000916
 offset_right = 0.00793457
 offset_bottom = -0.2720337
 
-[node name="LongIslandCarp" type="Sprite2D" parent="incomeView"]
-position = Vector2(273, 222)
-texture = ExtResource("1_v2lfg")
-
 [connection signal="pressed" from="defaultScreen/Control/HR" to="defaultScreen/Control/HR" method="_on_pressed"]
