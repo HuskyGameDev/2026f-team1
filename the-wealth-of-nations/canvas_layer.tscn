@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1im62adni5bv"]
 
-[ext_resource type="Script" uid="uid://blbgxenhwoewv" path="res://hr.gd" id="1_37rai"]
-[ext_resource type="Script" uid="uid://dbcmajl54ikjs" path="res://mapButton.gd" id="1_tg4cr"]
-[ext_resource type="Texture2D" uid="uid://cvlc5f43f2bmv" path="res://LongIsland-Carp.jpg" id="1_v2lfg"]
+[ext_resource type="Script" uid="uid://blbgxenhwoewv" path="res://Scripts/hr.gd" id="1_37rai"]
+[ext_resource type="Script" uid="uid://dbcmajl54ikjs" path="res://Scripts/mapButton.gd" id="1_tg4cr"]
+[ext_resource type="Texture2D" uid="uid://cvlc5f43f2bmv" path="res://Assets/LongIsland-Carp.jpg" id="1_v2lfg"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 

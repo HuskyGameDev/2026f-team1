@@ -13,4 +13,4 @@ config_version=5
 config/name="The Wealth of Nations"
 run/main_scene="res://canvas_layer.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
