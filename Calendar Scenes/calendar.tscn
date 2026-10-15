@@ -1,0 +1,110 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4ictknj1hior"]
+
+[ext_resource type="Script" path="res://Calendar Scenes/calendar.gd" id="1_f8ws7"]
+[ext_resource type="Script" path="res://Calendar Scenes/ColorEvent.gd" id="2_74sj6"]
+
+[node name="Calendar" type="Node2D"]
+script = ExtResource("1_f8ws7")
+StartingMinEvents = 0.4
+StartingMaxEvents = 3.3
+
+[node name="CalendarUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CalendarDayBack" type="ColorRect" parent="CalendarUI"]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = 81.0
+offset_right = -629.0
+offset_bottom = -203.0
+
+[node name="TimeLabel" type="RichTextLabel" parent="CalendarUI/CalendarDayBack"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_bottom = -330.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CalendarHeader" type="ColorRect" parent="CalendarUI/CalendarDayBack"]
+layout_mode = 0
+offset_top = -62.0
+offset_right = 480.0
+color = Color(1, 0, 0, 1)
+
+[node name="DayLabel" type="RichTextLabel" parent="CalendarUI/CalendarDayBack/CalendarHeader"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 42
+text = "Day 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CalendarCovered" type="ColorRect" parent="CalendarUI/CalendarDayBack"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 20.0
+size_flags_vertical = 0
+color = Color(0.0253638, 0.0253638, 0.025363795, 0.8666667)
+
+[node name="CalendarLine" type="ColorRect" parent="CalendarUI/CalendarDayBack/CalendarCovered"]
+custom_minimum_size = Vector2(480, 3)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -3.0
+offset_right = 240.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+color = Color(1, 0, 0, 1)
+
+[node name="EventMarker" type="ColorRect" parent="CalendarUI/CalendarDayBack"]
+custom_minimum_size = Vector2(480, 2)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_right = 240.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Events" type="Node" parent="."]
+
+[node name="ColorEvent" type="Node" parent="Events"]
+script = ExtResource("2_74sj6")
