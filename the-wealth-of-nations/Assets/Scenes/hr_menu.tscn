@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d0u1616mnjhp7"]
+
+[ext_resource type="Script" uid="uid://c638g4ukwer23" path="res://Assets/Scripts/UI/HR/hr_menu.gd" id="1_l8gld"]
+[ext_resource type="PackedScene" uid="uid://bqseskxvo72y1" path="res://Assets/Scenes/tree_node.tscn" id="2_5cnm4"]
+[ext_resource type="PackedScene" uid="uid://cl5v332s52e8s" path="res://Assets/Scenes/employee_display.tscn" id="3_f6ddm"]
+
+[node name="HR Menu" type="Control" unique_id=923998283 node_paths=PackedStringArray("employee_tree")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l8gld")
+tree_node_scene = ExtResource("2_5cnm4")
+employee_display_scene = ExtResource("3_f6ddm")
+employee_tree = NodePath("Employee Tree")
+
+[node name="Employee Tree" type="VBoxContainer" parent="." unique_id=229512017]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

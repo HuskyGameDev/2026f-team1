@@ -6,10 +6,6 @@ func _ready() -> void:
 	carp.visible = false
 	pressed.connect(_on_pressed)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 # I will endeavor to find out what this does later. It was in the guide. 
 func _on_pressed() -> void:
 	carp.visible = not carp.visible

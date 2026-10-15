@@ -8,9 +8,17 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="The Wealth of Nations"
-run/main_scene="res://canvas_layer.tscn"
-config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://Assets/icon.svg"
+run/main_scene="res://Assets/Scenes/canvas_layer.tscn"
+config/features=PackedStringArray("4.7", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*uid://ct6ndp36p6my1"
