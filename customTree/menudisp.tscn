@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://di2hy20pdbyot"]
+
+[node name="Menudisp" type="Control" unique_id=1489162304]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -941.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=916311711]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.025827358, 0.066132344, 0.20330483, 1)
+
+[node name="VBox" type="VBoxContainer" parent="Background" unique_id=1823817452]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Background/VBox" unique_id=678641856]
+layout_mode = 2
+text = "Node Title"
+horizontal_alignment = 1
+
+[node name="Image" type="TextureRect" parent="Background/VBox" unique_id=275813932]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="Text" type="RichTextLabel" parent="Background/VBox" unique_id=432541500]
+layout_mode = 2
+bbcode_enabled = true
+text = "This is a lot of text slop!!!!
+[b][color=red]HI[/color][/b]"
+fit_content = true

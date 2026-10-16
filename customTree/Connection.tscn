@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dhon873wkyc17"]
+
+[ext_resource type="Script" uid="uid://dascrhgceqpc" path="res://customTree/connection.gd" id="1_jibho"]
+
+[node name="Connection" type="Line2D" unique_id=345868471]
+points = PackedVector2Array(0, 0, 0, -18, 17, -18, 17, -41)
+joint_mode = 2
+antialiased = true
+script = ExtResource("1_jibho")

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cnyl7elc6168y"]
+
+[ext_resource type="Script" uid="uid://cm3psf2ad24cu" path="res://customTree/tree_ui.gd" id="1_7ohsy"]
+[ext_resource type="PackedScene" uid="uid://di2hy20pdbyot" path="res://customTree/menudisp.tscn" id="2_lohxt"]
+
+[node name="TreeUI" type="Control" unique_id=207808953]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ohsy")
+
+[node name="Divider" type="HBoxContainer" parent="." unique_id=395326346]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Menudisp" parent="Divider" unique_id=1489162304 instance=ExtResource("2_lohxt")]
+visible = false
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="Visualizer" type="GraphEdit" parent="Divider" unique_id=908576315]
+layout_mode = 2
+size_flags_horizontal = 3
+minimap_enabled = false
+show_zoom_label = true
+show_grid_buttons = false
+show_minimap_button = false
+show_arrange_button = false
+
+[connection signal="tree_entered" from="Divider/Visualizer" to="." method="_on_visualizer_tree_entered"]

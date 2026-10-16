@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvlc5f43f2bmv"
-path="res://.godot/imported/LongIsland-Carp.jpg-c2ddc98836f966344fe0b43fb20cc933.ctex"
+uid="uid://bi8g017d1mu78"
+path="res://.godot/imported/box.svg-ccf71391d35708dde7a7ba2c3a94fd3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LongIsland-Carp.jpg"
-dest_files=["res://.godot/imported/LongIsland-Carp.jpg-c2ddc98836f966344fe0b43fb20cc933.ctex"]
+source_file="res://box.svg"
+dest_files=["res://.godot/imported/box.svg-ccf71391d35708dde7a7ba2c3a94fd3e.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

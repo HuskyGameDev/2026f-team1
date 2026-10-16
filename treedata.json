@@ -1,0 +1,41 @@
+{
+	"Defaults": {
+		"draggable": false
+	},
+	"Nodes": {
+		"Node1": {
+			"name": "Node1",
+			"subtitle": "Random Garbage",
+			"pos": [50, 200],
+			"dim": [80, 200]
+		},
+		"Node2": {
+			"name": "Node2",
+			"document": {
+				"header": "@name",
+				"image": "res://box.svg",
+				"text": [
+					"Some entry text.",
+					"Line break!"
+				]
+			},
+			"pos": [200, 0]
+		},
+		"Node3": {
+			"name": "Node3",
+			"pos": [-300, 0],
+			"subtitle": "Some crazy amounts of overflow on this tiny recursive sub-tree thingy. This currently breaks things...",
+		},
+		"Node4": {
+			"name": "Node4",
+			"subtitle": "[b][color=ff6464]Colorful Garbage![/color][/b]",
+			"pos": [0, -350]
+		}
+	},
+	"Connections": [
+		["Node1", "Node4"],
+		["Node1", "Node2"],
+		["Node2", "Node4"],
+		["Node3", "Node3"],
+	]
+}
