@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bdcmrg2myu1hi"]
+
+[ext_resource type="Script" uid="uid://b6ud5r7heapcm" path="res://Assets/Scripts/UI/Money/cash_money.gd" id="1_uhqko"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 50
+
+[node name="CashMoney" type="Control" unique_id=247078464]
+layout_mode = 3
+anchor_right = 0.252
+anchor_bottom = 0.10700001
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhqko")
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=1167359148]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "$0"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="ModulateTimer" type="Timer" parent="MoneyLabel" unique_id=433382810]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="MoneyLabel/ModulateTimer" to="." method="_on_modulate_timer_timeout"]

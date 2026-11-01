@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://d1im62adni5bv"]
 
 [ext_resource type="Script" uid="uid://blbgxenhwoewv" path="res://Assets/Scripts/UI/Main/hr.gd" id="1_38sx5"]
+[ext_resource type="Texture2D" uid="uid://6qyny4nx2ymy" path="res://Assets/Textures/Calendar Icon.png" id="1_oxkjf"]
 [ext_resource type="Script" uid="uid://dbcmajl54ikjs" path="res://Assets/Scripts/UI/Main/map_button.gd" id="2_38sx5"]
+[ext_resource type="Script" uid="uid://bpgmn7o4eq6ps" path="res://Assets/Scenes/calendar_button.gd" id="2_phs0a"]
 [ext_resource type="Texture2D" uid="uid://cvlc5f43f2bmv" path="res://Assets/Textures/LongIsland-Carp.jpg" id="3_38sx5"]
+[ext_resource type="PackedScene" uid="uid://bdcmrg2myu1hi" path="res://Assets/Scenes/cash_money.tscn" id="3_oo86q"]
 [ext_resource type="PackedScene" uid="uid://d0u1616mnjhp7" path="res://Assets/Scenes/hr_menu.tscn" id="4_32q2e"]
+[ext_resource type="PackedScene" uid="uid://c4ictknj1hior" path="res://Assets/Scenes/calendar.tscn" id="7_i22ao"]
 
 [node name="Main" type="CanvasLayer" unique_id=1113739007]
 
@@ -12,6 +16,26 @@ offset_left = 2.0
 offset_top = 4.0
 offset_right = 1072.0
 offset_bottom = 526.0
+
+[node name="CalendarButton" type="Button" parent="Default Screen" unique_id=2037584416 node_paths=PackedStringArray("calendar_menu")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74
+anchor_right = 0.79
+anchor_bottom = 0.1
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_oxkjf")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_phs0a")
+calendar_menu = NodePath("../Calendar")
+
+[node name="CashMoney" parent="Default Screen" unique_id=247078464 instance=ExtResource("3_oo86q")]
+layout_mode = 1
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 0.1
 
 [node name="Menu Tabs" type="HBoxContainer" parent="Default Screen" unique_id=1714804118]
 custom_minimum_size = Vector2(0, 60)
@@ -45,6 +69,14 @@ anchor_right = 0.29200003
 offset_top = -0.12400055
 offset_right = -0.44003296
 
+[node name="Calendar" parent="Default Screen" unique_id=1584077206 instance=ExtResource("7_i22ao")]
+layout_mode = 1
+anchor_left = 0.012
+anchor_top = 0.5
+anchor_right = 0.25654206
+anchor_bottom = 0.98457855
+metadata/_edit_use_anchors_ = true
+
 [node name="Income View" type="PanelContainer" parent="Default Screen" unique_id=543486703]
 layout_mode = 1
 anchors_preset = -1
@@ -62,3 +94,5 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("3_38sx5")
+
+[connection signal="pressed" from="Default Screen/CalendarButton" to="Default Screen/CalendarButton" method="_on_pressed"]

@@ -22,3 +22,5 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*uid://ct6ndp36p6my1"
+MoneyBus="*uid://dsmn3wkmf6hie"
+TimeBus="*uid://s8huwg7ll44q"

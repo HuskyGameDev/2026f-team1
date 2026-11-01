@@ -1,110 +1,440 @@
 [gd_scene format=3 uid="uid://c4ictknj1hior"]
 
 [ext_resource type="Script" uid="uid://ccjvrmwvyee6b" path="res://Assets/Scripts/UI/Calendar/calendar.gd" id="1_f8ws7"]
-[ext_resource type="Script" uid="uid://dsemanu6otau5" path="res://Assets/Scripts/Reusable/color_event.gd" id="2_74sj6"]
+[ext_resource type="Script" uid="uid://dsemanu6otau5" path="res://Assets/Scripts/Reusable/money_event.gd" id="2_74sj6"]
 
-[node name="Calendar" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0, 0.32941177, 0.8862745, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
+line_spacing = 0.0
+font_size = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qmd"]
+bg_color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0u6y"]
+bg_color = Color(0, 0.32941177, 0.8862745, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0u6y"]
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="Calendar" type="Control" unique_id=1584077206]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchor_right = 0.25
+anchor_bottom = 0.475
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_f8ws7")
 StartingMinEvents = 0.4
 StartingMaxEvents = 3.3
 
-[node name="CalendarUI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1152.0
-offset_bottom = 648.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CalendarDayBack" type="ColorRect" parent="CalendarUI"]
-modulate = Color(18.892157, 18.892157, 18.892157, 1)
+[node name="Window" type="Panel" parent="." unique_id=966728664]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 43.0
-offset_top = 81.0
-offset_right = -629.0
-offset_bottom = -203.0
-
-[node name="TimeLabel" type="RichTextLabel" parent="CalendarUI/CalendarDayBack"]
-z_index = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -6.0
-offset_bottom = -330.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 24
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+metadata/_edit_use_anchors_ = true
 
-[node name="CalendarHeader" type="ColorRect" parent="CalendarUI/CalendarDayBack"]
-layout_mode = 0
-offset_top = -62.0
-offset_right = 480.0
-color = Color(1, 0, 0, 1)
-
-[node name="DayLabel" type="RichTextLabel" parent="CalendarUI/CalendarDayBack/CalendarHeader"]
-z_index = 1
+[node name="MarginContainer" type="MarginContainer" parent="Window" unique_id=1148243511]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 42
-text = "Day 0"
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/MarginContainer" unique_id=2109298928]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CalendarLabel" type="Label" parent="Window/MarginContainer/VBoxContainer" unique_id=1987828958]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Calendar"
+label_settings = SubResource("LabelSettings_yf5fn")
+
+[node name="CalendarBG" type="Panel" parent="Window/MarginContainer/VBoxContainer" unique_id=55437067]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_57qmd")
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/MarginContainer/VBoxContainer/CalendarBG" unique_id=1496939086]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer" unique_id=498938518]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Spacer" type="Panel" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer" unique_id=544480689]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Month-Year" type="Panel" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer" unique_id=2016638660]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_d0u6y")
+
+[node name="Label" type="Label" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Month-Year" unique_id=115048016]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Month - Year"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+
+[node name="Days" type="VBoxContainer" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer" unique_id=1598527658]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 15.0
+
+[node name="DayLabels" type="HBoxContainer" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days" unique_id=1793133049]
+layout_mode = 2
+
+[node name="Sunday" type="Label" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayLabels" unique_id=357779750]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sun"
+label_settings = SubResource("LabelSettings_d0u6y")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CalendarCovered" type="ColorRect" parent="CalendarUI/CalendarDayBack"]
-custom_minimum_size = Vector2(480, 0)
-layout_mode = 0
-offset_right = 480.0
-offset_bottom = 20.0
-size_flags_vertical = 0
-color = Color(0.0253638, 0.0253638, 0.025363795, 0.8666667)
+[node name="Monday" type="Label" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayLabels" unique_id=2001226177]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mon"
+label_settings = SubResource("LabelSettings_d0u6y")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CalendarLine" type="ColorRect" parent="CalendarUI/CalendarDayBack/CalendarCovered"]
-custom_minimum_size = Vector2(480, 3)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = -3.0
-offset_right = 240.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 0
-color = Color(1, 0, 0, 1)
+[node name="Tuesday" type="Label" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayLabels" unique_id=318440723]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Tue"
+label_settings = SubResource("LabelSettings_d0u6y")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="EventMarker" type="ColorRect" parent="CalendarUI/CalendarDayBack"]
-custom_minimum_size = Vector2(480, 2)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -240.0
-offset_right = 240.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 0
-color = Color(0, 0, 0, 1)
+[node name="Wednesday" type="Label" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayLabels" unique_id=740753015]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Wed"
+label_settings = SubResource("LabelSettings_d0u6y")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Events" type="Node" parent="."]
+[node name="Thursday" type="Label" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayLabels" unique_id=764558836]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Thu"
+label_settings = SubResource("LabelSettings_d0u6y")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ColorEvent" type="Node" parent="Events"]
+[node name="Friday" type="Label" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayLabels" unique_id=531784111]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fri"
+label_settings = SubResource("LabelSettings_d0u6y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Saturday" type="Label" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayLabels" unique_id=1968542868]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sat"
+label_settings = SubResource("LabelSettings_d0u6y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DayGrid" type="GridContainer" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days" unique_id=290175987]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 7
+
+[node name="1" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=579689918]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="2" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=196114625]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="3" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1101780447]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="4" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=478327399]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="5" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1435948089]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="6" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1981554369]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="7" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=669452828]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="8" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=634228839]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="9" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1197531512]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="10" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1060996099]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="11" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=985055760]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="12" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=496935043]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="13" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1941443089]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="14" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=844537325]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="15" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1153338002]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="16" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=987218943]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="17" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=870363136]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="18" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=570265187]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="19" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=419336248]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="20" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=741509357]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="21" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=48413045]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="22" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=170333279]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="23" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1197240944]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="24" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=812743048]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="25" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1236037304]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="26" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1353661709]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="27" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=441355991]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="28" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1150258779]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="29" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=587595064]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="30" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=2102567240]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="31" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1378285174]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="32" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=783953608]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="33" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=822504141]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="34" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=375760262]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="35" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=65964195]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="36" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1474309756]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="37" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=585970324]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="38" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1445302859]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="39" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=2141817388]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="40" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=1168534084]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="41" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=688623086]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="42" type="ColorRect" parent="Window/MarginContainer/VBoxContainer/CalendarBG/MarginContainer/VBoxContainer/Days/DayGrid" unique_id=818204871]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.9254902, 0.9137255, 0.84705883, 1)
+
+[node name="Events" type="Node" parent="." unique_id=730722811]
+
+[node name="TestEvent" type="Node" parent="Events" unique_id=1877818758]
 script = ExtResource("2_74sj6")
