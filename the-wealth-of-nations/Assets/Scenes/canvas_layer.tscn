@@ -1,17 +1,20 @@
 [gd_scene format=3 uid="uid://d1im62adni5bv"]
 
 [ext_resource type="Script" uid="uid://blbgxenhwoewv" path="res://Assets/Scripts/UI/Main/hr.gd" id="1_38sx5"]
+[ext_resource type="Script" uid="uid://5quell3ovxvi" path="res://Assets/Scripts/UI/RnD/r&d.gd" id="2_0m3kj"]
 [ext_resource type="Script" uid="uid://dbcmajl54ikjs" path="res://Assets/Scripts/UI/Main/map_button.gd" id="2_38sx5"]
 [ext_resource type="Texture2D" uid="uid://cvlc5f43f2bmv" path="res://Assets/Textures/LongIsland-Carp.jpg" id="3_38sx5"]
 [ext_resource type="PackedScene" uid="uid://d0u1616mnjhp7" path="res://Assets/Scenes/hr_menu.tscn" id="4_32q2e"]
+[ext_resource type="PackedScene" uid="uid://jjg5epoje2jf" path="res://Assets/Scenes/RnDArea.tscn" id="6_oufd1"]
 
 [node name="Main" type="CanvasLayer" unique_id=1113739007]
 
 [node name="Default Screen" type="Panel" parent="." unique_id=256505021]
-offset_left = 2.0
-offset_top = 4.0
-offset_right = 1072.0
-offset_bottom = 526.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Menu Tabs" type="HBoxContainer" parent="Default Screen" unique_id=1714804118]
 custom_minimum_size = Vector2(0, 60)
@@ -26,10 +29,12 @@ text = "Human Resources"
 script = ExtResource("1_38sx5")
 hr_menu = NodePath("../../HR Menu")
 
-[node name="R&D" type="Button" parent="Default Screen/Menu Tabs" unique_id=1644264605]
+[node name="R&D" type="Button" parent="Default Screen/Menu Tabs" unique_id=1644264605 node_paths=PackedStringArray("rnd_menu")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "R&D"
+script = ExtResource("2_0m3kj")
+rnd_menu = NodePath("../../RnDArea")
 
 [node name="Map" type="Button" parent="Default Screen/Menu Tabs" unique_id=806792098]
 custom_minimum_size = Vector2(150, 0)
@@ -62,3 +67,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("3_38sx5")
+
+[node name="RnDArea" parent="Default Screen" unique_id=1394764776 instance=ExtResource("6_oufd1")]
+visible = false
+layout_mode = 1

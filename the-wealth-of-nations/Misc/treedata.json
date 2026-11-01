@@ -1,0 +1,49 @@
+{
+	"Defaults": {
+		"draggable": false
+	},
+	"Nodes": {
+		"Node1": {
+			"name": "Node1 - Long",
+			"subtitle": [
+				"Random Garbage in an array!",
+				"Random Garbage in an array!",
+				"Random Garbage in an array!",
+				"Oops! LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONG GARBAGE WRAPPING!",
+				"Random Garbage in an array!",
+				"Random Garbage in an array!",
+				"Random Garbage in an array!",
+                "Random Garbage in an array!"
+			],
+			"pos": [100, 200]
+		},
+		"Node2": {
+			"name": "Node2",
+			"document": {
+				"header": "@name",
+				"image": "res://box.svg",
+				"text": [
+					"Some entry text.",
+                    "Line break!"
+				]
+			},
+			"pos": [200, 0]
+		},
+		"Node3": {
+			"name": "Very Long Node 3 Name",
+			"pos": [-600, 0],
+			"subtitle": "Some crazy amounts of overflow on this tiny recursive sub-tree thingy. This currently breaks things...",
+		},
+		"Node4": {
+			"name": "Node4",
+			"subtitle": "[b][color=cc3232]Colorful Garbage![/color][/b]",
+			"pos": [0, -200]
+		}
+	},
+	"Connections": [
+		["Node1", "Node4"],
+		["Node1", "Node2"],
+		["Node2", "Node4"],
+		["Node3", "Node3"],
+	]
+}

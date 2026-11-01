@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://d1foq8cbl5e7e"]
+
+[ext_resource type="Script" uid="uid://lok0ci0fli8h" path="res://Assets/Scripts/UI/RnD/tree_vis.gd" id="1_1gtb8"]
+[ext_resource type="PackedScene" uid="uid://bwpqh5bfpu7ro" path="res://Assets/Scenes/TechTree/NodeSpace.tscn" id="1_e0w8l"]
+
+[node name="TreeVis" type="Control" unique_id=251890334]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1gtb8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1825300568]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="ColorRect" unique_id=867941610]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="ColorRect/SubViewportContainer" unique_id=1741860241]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="NodeSpace" parent="ColorRect/SubViewportContainer/SubViewport" unique_id=1824941692 instance=ExtResource("1_e0w8l")]
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="gui_input" from="ColorRect/SubViewportContainer" to="." method="_on_sub_viewport_container_gui_input"]

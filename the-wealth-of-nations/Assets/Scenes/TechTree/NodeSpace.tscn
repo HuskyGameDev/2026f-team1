@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bwpqh5bfpu7ro"]
+
+[node name="NodeSpace" type="Node2D" unique_id=1824941692]
+
+[node name="Origin" type="ColorRect" parent="." unique_id=674781065]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0, 0, 1)
