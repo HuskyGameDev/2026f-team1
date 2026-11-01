@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://d1im62adni5bv"]
+
+[ext_resource type="Script" uid="uid://blbgxenhwoewv" path="res://Assets/Scripts/UI/Main/hr.gd" id="1_38sx5"]
+[ext_resource type="Script" uid="uid://dbcmajl54ikjs" path="res://Assets/Scripts/UI/Main/map_button.gd" id="2_38sx5"]
+[ext_resource type="Texture2D" uid="uid://cvlc5f43f2bmv" path="res://Assets/Textures/LongIsland-Carp.jpg" id="3_38sx5"]
+[ext_resource type="PackedScene" uid="uid://d0u1616mnjhp7" path="res://Assets/Scenes/hr_menu.tscn" id="4_32q2e"]
+
+[node name="Main" type="CanvasLayer" unique_id=1113739007]
+
+[node name="Default Screen" type="Panel" parent="." unique_id=256505021]
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 1072.0
+offset_bottom = 526.0
+
+[node name="Menu Tabs" type="HBoxContainer" parent="Default Screen" unique_id=1714804118]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+offset_right = 329.0
+offset_bottom = 31.0
+
+[node name="HR" type="Button" parent="Default Screen/Menu Tabs" unique_id=1491577358 node_paths=PackedStringArray("hr_menu")]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Human Resources"
+script = ExtResource("1_38sx5")
+hr_menu = NodePath("../../HR Menu")
+
+[node name="R&D" type="Button" parent="Default Screen/Menu Tabs" unique_id=1644264605]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "R&D"
+
+[node name="Map" type="Button" parent="Default Screen/Menu Tabs" unique_id=806792098]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Global Holdings"
+script = ExtResource("2_38sx5")
+
+[node name="HR Menu" parent="Default Screen" unique_id=923998283 instance=ExtResource("4_32q2e")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.142
+anchor_right = 0.29200003
+offset_top = -0.12400055
+offset_right = -0.44003296
+
+[node name="Income View" type="PanelContainer" parent="Default Screen" unique_id=543486703]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29500002
+anchor_top = 0.142
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.3499756
+offset_top = -0.12400055
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LongIslandCarp" type="TextureRect" parent="Default Screen/Income View" unique_id=1628578132]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("3_38sx5")

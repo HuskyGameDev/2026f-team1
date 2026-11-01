@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:box.svg.import
 uid="uid://bi8g017d1mu78"
 path="res://.godot/imported/box.svg-ccf71391d35708dde7a7ba2c3a94fd3e.ctex"
+========
+uid="uid://cvlc5f43f2bmv"
+path="res://.godot/imported/LongIsland-Carp.jpg-0028796f97d8a24a8d778e7cb607f07e.ctex"
+>>>>>>>> main:the-wealth-of-nations/Assets/Textures/LongIsland-Carp.jpg.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:box.svg.import
 source_file="res://box.svg"
 dest_files=["res://.godot/imported/box.svg-ccf71391d35708dde7a7ba2c3a94fd3e.ctex"]
+========
+source_file="res://Assets/Textures/LongIsland-Carp.jpg"
+dest_files=["res://.godot/imported/LongIsland-Carp.jpg-0028796f97d8a24a8d778e7cb607f07e.ctex"]
+>>>>>>>> main:the-wealth-of-nations/Assets/Textures/LongIsland-Carp.jpg.import
 
 [params]
 
