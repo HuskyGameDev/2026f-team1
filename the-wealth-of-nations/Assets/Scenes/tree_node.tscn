@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bqseskxvo72y1"]
+
+[ext_resource type="Script" uid="uid://dlnpbn2p26cg8" path="res://Assets/Scripts/tree_node.gd" id="1_jdicq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3j3dn"]
+content_margin_left = 35.0
+
+[node name="Tree Node" type="VBoxContainer" unique_id=2069796481 node_paths=PackedStringArray("display", "expand_button", "label_display", "children_padding", "children_container")]
+offset_right = 269.0
+offset_bottom = 27.0
+script = ExtResource("1_jdicq")
+display = NodePath("Display")
+expand_button = NodePath("Display/Expand")
+label_display = NodePath("Display/Label Box/Label")
+children_padding = NodePath("Children Container")
+children_container = NodePath("Children Container/Children")
+
+[node name="Display" type="HBoxContainer" parent="." unique_id=835183942]
+layout_mode = 2
+
+[node name="Expand" type="Button" parent="Display" unique_id=345665623]
+layout_mode = 2
+
+[node name="Label Box" type="PanelContainer" parent="Display" unique_id=163701737]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Display/Label Box" unique_id=217694940]
+layout_mode = 2
+text = "lfsdkgjsdl;fjkgsdf;ljkgsdf;lkgjsd;flg"
+
+[node name="Children Container" type="PanelContainer" parent="." unique_id=509416890]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3j3dn")
+
+[node name="Children" type="VBoxContainer" parent="Children Container" unique_id=414978070]
+layout_mode = 2
