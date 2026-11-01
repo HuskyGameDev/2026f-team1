@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4ictknj1hior"]
+[gd_scene format=3 uid="uid://c4ictknj1hior"]
 
-[ext_resource type="Script" path="res://Calendar Scenes/calendar.gd" id="1_f8ws7"]
-[ext_resource type="Script" path="res://Calendar Scenes/ColorEvent.gd" id="2_74sj6"]
+[ext_resource type="Script" uid="uid://ccjvrmwvyee6b" path="res://Assets/Scripts/UI/Calendar/calendar.gd" id="1_f8ws7"]
+[ext_resource type="Script" uid="uid://dsemanu6otau5" path="res://Assets/Scripts/Reusable/color_event.gd" id="2_74sj6"]
 
 [node name="Calendar" type="Node2D"]
 script = ExtResource("1_f8ws7")
