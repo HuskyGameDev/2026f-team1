@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cqjyvug1siubt"]
+
+[ext_resource type="Script" uid="uid://dtrlowr82mmac" path="res://Assets/Scripts/UI/Main/ui_window.gd" id="1_uo86g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uo86g"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3j3dn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
+[node name="UI Window" type="PanelContainer" unique_id=1237870241 node_paths=PackedStringArray("label_display", "close_button", "children_viewport")]
+visible = false
+offset_right = 28.0
+offset_bottom = 35.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uo86g")
+script = ExtResource("1_uo86g")
+label_display = NodePath("Panel/Contents/Header/Label")
+close_button = NodePath("Panel/Contents/Header/Close")
+children_viewport = NodePath("Panel/Contents/Children Viewport")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1587749761]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Contents" type="VBoxContainer" parent="Panel" unique_id=2109794853]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="Panel/Contents" unique_id=735775366]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Contents/Header" unique_id=1241390880]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Close" type="Button" parent="Panel/Contents/Header" unique_id=561314309]
+custom_minimum_size = Vector2(23, 23)
+layout_mode = 2
+
+[node name="Children Viewport" type="PanelContainer" parent="Panel/Contents" unique_id=1028752393]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3j3dn")
