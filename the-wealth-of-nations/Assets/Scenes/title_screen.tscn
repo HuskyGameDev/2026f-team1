@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://c2tfxsohwv4c3"]
+
+[ext_resource type="Texture2D" uid="uid://ban7rd7eqwa12" path="res://Assets/1.jpg" id="1_1w8gm"]
+[ext_resource type="Script" uid="uid://c810n1b3cf3h4" path="res://Assets/Scripts/buttons.gd" id="1_583xk"]
+[ext_resource type="Texture2D" uid="uid://k5giioji35sk" path="res://Assets/border.png" id="2_aa44o"]
+[ext_resource type="AudioStream" uid="uid://dl5yn365tn5rh" path="res://Assets/eagle.mp3" id="4_gmbkg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aa44o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_583xk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1w8gm"]
+texture = ExtResource("2_aa44o")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmbkg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0p3m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5hoo"]
+texture = ExtResource("2_aa44o")
+
+[node name="Title" type="Node2D" unique_id=807488529]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1929409152]
+position = Vector2(576, 323.99997)
+scale = Vector2(0.6, 0.59999996)
+texture = ExtResource("1_1w8gm")
+
+[node name="NewGame" type="Button" parent="." unique_id=1331309940 node_paths=PackedStringArray("sfx_eagle")]
+offset_left = 448.0
+offset_top = 303.0
+offset_right = 707.0
+offset_bottom = 367.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_aa44o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_583xk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1w8gm")
+script = ExtResource("1_583xk")
+sfx_eagle = NodePath("../sfx_eagle")
+
+[node name="Continue" type="Button" parent="." unique_id=2077101412]
+offset_left = 461.0
+offset_top = 367.0
+offset_right = 699.0
+offset_bottom = 430.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_aa44o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_583xk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1w8gm")
+
+[node name="Leaderboard" type="MenuButton" parent="." unique_id=1934768026]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Settings" type="MenuButton" parent="." unique_id=918370079]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Exit" type="Button" parent="." unique_id=1072447163 node_paths=PackedStringArray("sfx_eagle")]
+offset_left = 504.0
+offset_top = 558.0
+offset_right = 650.0
+offset_bottom = 617.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gmbkg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u0p3m")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n5hoo")
+script = ExtResource("1_583xk")
+sfx_eagle = NodePath("../sfx_eagle")
+
+[node name="sfx_eagle" type="AudioStreamPlayer2D" parent="." unique_id=731903086]
+stream = ExtResource("4_gmbkg")
+
+[node name="Fade" type="CanvasLayer" parent="." unique_id=1819093123]
+
+[node name="ColorRect" type="ColorRect" parent="Fade" unique_id=1377643247]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

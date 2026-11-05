@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://djk0wy07otvep"]
+
+[ext_resource type="Texture2D" uid="uid://dsxvxq8fsw6nm" path="res://Assets/background.png" id="1_pfbgl"]
+[ext_resource type="PackedScene" uid="uid://d1im62adni5bv" path="res://Assets/Scenes/canvas_layer.tscn" id="3_lcp10"]
+
+[node name="Game" type="Node2D" unique_id=1737606828]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=34132534]
+position = Vector2(576, 324.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_pfbgl")
+
+[node name="Label" type="Label" parent="Background" unique_id=1803787448]
+offset_left = -810.0
+offset_top = 364.99994
+offset_right = -664.99994
+offset_bottom = 418.33325
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Background" unique_id=1152584439]
+offset_left = 613.3333
+offset_top = 363.33328
+offset_right = 796.6667
+offset_bottom = 419.99997
+text = "XX:xx:xx XX/xx/XXXX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main" parent="." unique_id=1113739007 instance=ExtResource("3_lcp10")]

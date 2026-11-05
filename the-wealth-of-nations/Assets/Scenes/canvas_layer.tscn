@@ -2,7 +2,27 @@
 
 [ext_resource type="Script" uid="uid://dji0sg65qhmwq" path="res://Assets/Scripts/Core/main.gd" id="1_0m3kj"]
 [ext_resource type="Script" uid="uid://blbgxenhwoewv" path="res://Assets/Scripts/UI/Main/hr.gd" id="1_38sx5"]
+[ext_resource type="Texture2D" uid="uid://kcqrwhn8v5ja" path="res://Assets/tab_c.png" id="2_32q2e"]
+[ext_resource type="Texture2D" uid="uid://1bo3sk1vjeow" path="res://Assets/tab_o.png" id="3_0m3kj"]
 [ext_resource type="PackedScene" uid="uid://d0u1616mnjhp7" path="res://Assets/Scenes/hr_menu.tscn" id="4_32q2e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lcp10"]
+texture = ExtResource("2_32q2e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0m3kj"]
+texture = ExtResource("3_0m3kj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oufd1"]
+texture = ExtResource("2_32q2e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f0fev"]
+texture = ExtResource("3_0m3kj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxkjf"]
+texture = ExtResource("2_32q2e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_phs0a"]
+texture = ExtResource("3_0m3kj")
 
 [node name="Main" type="CanvasLayer" unique_id=1113739007 node_paths=PackedStringArray("hr_menu")]
 script = ExtResource("1_0m3kj")
@@ -12,13 +32,19 @@ hr_menu = NodePath("HR Menu")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -60.0
-offset_right = 458.0
+offset_left = 200.0
+offset_top = -109.0
+offset_right = 658.0
+offset_bottom = -71.0
 grow_vertical = 0
 
 [node name="HR" type="Button" parent="Menu Tabs" unique_id=1491577358 node_paths=PackedStringArray("hr_menu")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_lcp10")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0m3kj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lcp10")
+toggle_mode = true
 text = "Human Resources"
 script = ExtResource("1_38sx5")
 hr_menu = NodePath("../../HR Menu")
@@ -26,16 +52,28 @@ hr_menu = NodePath("../../HR Menu")
 [node name="R&D" type="Button" parent="Menu Tabs" unique_id=1644264605]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_oufd1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f0fev")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oufd1")
+toggle_mode = true
 text = "R&D"
 
 [node name="Map" type="Button" parent="Menu Tabs" unique_id=806792098]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_oxkjf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_phs0a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oxkjf")
+toggle_mode = true
 text = "Global Holdings"
 
 [node name="HR Menu" parent="." unique_id=923998283 instance=ExtResource("4_32q2e")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 100.0
+offset_bottom = 200.0
 grow_horizontal = 1
 grow_vertical = 1

@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="The Wealth of Nations"
-run/main_scene="res://Assets/Scenes/canvas_layer.tscn"
+run/main_scene="uid://c2tfxsohwv4c3"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
