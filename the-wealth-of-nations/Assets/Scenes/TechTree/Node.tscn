@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bs2sqncrt2klp" path="res://Assets/Scripts/UI/RnD/node.gd" id="1_8i61d"]
 [ext_resource type="AudioStream" uid="uid://c0q07jmg2s7cd" path="res://Assets/Sound/enter.wav" id="2_e54xp"]
+[ext_resource type="AudioStream" uid="uid://6tpslvqthkvl" path="res://Assets/Sound/exit.wav" id="3_y2kia"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p448m"]
 load_path = "res://.godot/imported/NodePatch.png-0b3542456ae9d362cdf59474b973a118.ctex"
@@ -64,5 +65,8 @@ scroll_active = false
 
 [node name="Click" type="AudioStreamPlayer" parent="." unique_id=1000314428]
 stream = ExtResource("2_e54xp")
+
+[node name="Exit" type="AudioStreamPlayer" parent="." unique_id=450917553]
+stream = ExtResource("3_y2kia")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

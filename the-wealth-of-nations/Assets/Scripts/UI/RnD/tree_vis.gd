@@ -3,6 +3,7 @@ extends Control
 @export var pos := Vector2(0,0)
 @export var zoom := 1.0
 @export var ptr := [zoom]
+@export var mainNode := [""]
 @export var draggable := false
 @export var lastPos := Vector2(0,0)
 @onready var nodeSpace := $ColorRect/SubViewportContainer/SubViewport/NodeSpace
@@ -20,15 +21,18 @@ func _ready() -> void:
 		addNode(n, data["Nodes"][n])
 	for c in data["Connections"]:
 		addConnection(c)
+	EventBus.emit_signal("submitNodeSet", nodeSet)
 
 func addNode(n: String, dict: Dictionary):
 	var currNode := node.instantiate()
 	nodeSet.set(n, currNode)
+	currNode.id = n
 	currNode.data = dict
 	currNode.edge = edge
 	currNode.nodeSet = nodeSet
 	currNode.edgeArr = edgeArr
 	currNode.zoomPointer = ptr
+	currNode.mainNode = mainNode
 	nodeSpace.add_child(currNode)
 
 func addConnection(c: Array):

@@ -10,4 +10,5 @@ func _on_pressed() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
+		EventBus.emit_signal("exitTreeDocument")
 		rnd_menu.visible = false

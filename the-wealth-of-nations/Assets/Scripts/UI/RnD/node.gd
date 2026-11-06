@@ -1,5 +1,6 @@
 extends MarginContainer
 
+@export var id := ""
 @export var edge: PackedScene
 @export var data: Dictionary = {}
 @export var outArr := []
@@ -7,9 +8,11 @@ extends MarginContainer
 @export var nodeSet := {}
 @export var edgeArr := []
 @export var doc := {}
+@export var mainNode := [""]
 @onready var title := $VBoxContainer/HBoxContainer/Title
 @onready var subtitle := $VBoxContainer/Subtitle
 @onready var click := $Click
+@onready var exit := $Exit
 
 func _enter_tree() -> void:
 	doc.merge(data.get("document", {}))
@@ -56,7 +59,14 @@ func childOf(connection: Array):
 @export var zoomPointer := []
 func _on_gui_input(event: InputEvent) -> void:
 	if(event.is_action_pressed("tree_node_display")):
-		click.play()
+		if(mainNode[0] != id):
+			mainNode[0] = id
+			EventBus.emit_signal("pushTreeDocument", id)
+			click.play()
+		else:
+			mainNode[0] = ""
+			EventBus.emit_signal("exitTreeDocument")
+			exit.play()
 		return
 	if(event.is_action_pressed("tree_node_click")): draggable = true
 	if(event.is_action_released("tree_node_click")): draggable = false
