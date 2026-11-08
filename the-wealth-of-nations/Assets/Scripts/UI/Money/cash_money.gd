@@ -17,6 +17,7 @@ func _on_money_update(value: int):
 	elif value < lastvalue:
 		MoneyLabel.modulate = Color(0.51, 0.139, 0.18, 1.0)
 		ModTimer.start()
+	lastvalue = value
 
 func _on_modulate_timer_timeout() -> void:
 	MoneyLabel.modulate = Color(1.0, 1.0, 1.0, 1.0)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccjvrmwvyee6b" path="res://Assets/Scripts/UI/Calendar/calendar.gd" id="1_f8ws7"]
 [ext_resource type="Script" uid="uid://dsemanu6otau5" path="res://Assets/Scripts/Reusable/money_event.gd" id="2_74sj6"]
+[ext_resource type="Script" uid="uid://daihg4nugepsi" path="res://Assets/Scenes/2100.gd" id="3_hkbrr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0, 0.32941177, 0.8862745, 1)
@@ -33,6 +34,7 @@ anchor_bottom = 0.475
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f8ws7")
+DayLength = 0.1
 StartingMinEvents = 0.4
 StartingMaxEvents = 3.3
 
@@ -438,3 +440,8 @@ color = Color(0.9254902, 0.9137255, 0.84705883, 1)
 
 [node name="TestEvent" type="Node" parent="Events" unique_id=1877818758]
 script = ExtResource("2_74sj6")
+
+[node name="Schedules" type="Node" parent="." unique_id=185331409]
+
+[node name="2100" type="Node" parent="Schedules" unique_id=386232835]
+script = ExtResource("3_hkbrr")

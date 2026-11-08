@@ -17,6 +17,7 @@ var daysInMonth: Array = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 #Events
 @onready var Events = $Events
+@onready var Schedules = $Schedules
 enum EventModeList {Scheduled = 0, Random = 1, ScheduledRandom = 2}
 @export var EventMode: EventModeList = EventModeList.Random
 @export var StartingMinEvents: float = 0
@@ -28,14 +29,16 @@ var random = RandomNumberGenerator.new()
 var NumEvents: int = 0
 var EventArray: Array = []
 var EventMarkerArray: Array = []
-var EventIndex: int = 0
 var EventDict: Dictionary = {}
+var CurrentSchedule: Dictionary
+var canFireEvent: bool = true
 
 func _ready():
 	date = Time.get_datetime_dict_from_datetime_string(StartDate, true)
 
-	InitializeMonth(date)
-	InitializeEvents()
+	CalendarMonth(date)
+	ScheduleYear()
+	ScheduleMonth()
 	#InitializeEvents()
 	#random.seed = 67
 	pass
@@ -49,6 +52,7 @@ func _process(delta: float) -> void:
 	if TimeElapsed >= DayLength:
 		TimeElapsed = 0
 		date.day += 1
+		canFireEvent = true
 		UpdateCalendar(date)
 		TimeBus.day_change.emit(date.day)
 	
@@ -57,59 +61,120 @@ func _process(delta: float) -> void:
 			date.month = 1
 			date.year += 1
 			TimeBus.year_change.emit(date.year)
+			ScheduleYear()
 		else:
 			date.month += 1
 		date.day = 1
 		
 		TimeBus.month_change.emit(date.month)
-		InitializeMonth(date)
+		CalendarMonth(date)
 		
-		EventIndex = 0
-		InitializeEvents()
+		ScheduleMonth()
 	#endregion
 	
 	#region Events
-	if EventArray.size() > EventIndex and date.day == EventArray[EventIndex]:
-		print(snapped(EventArray[EventIndex], 0.01), ": ", EventDict[EventIndex], " triggered")
-		EventDict[EventIndex].runEvent([])
-		EventIndex += 1
+	if canFireEvent and EventDict.get(date.day) != null:
+		var queued = EventDict[date.day]
+		if queued[1] != null:
+			queued[0].runEvent([queued[1]])
+		else:
+			queued[0].runEvent([])
+		canFireEvent = false
 	#endregion
 
-func InitializeEvents():
-	EventArray.clear()
-	
-	#print("-------")
-	#print("Month: ", date.month)
-	#print("Event MinMax ", StartingMinEvents + ((date.month - 1) * MinEventsScale), ", ", StartingMaxEvents + ((date.month - 1) * MaxEventsScale))
-	
-	match EventMode:
-		EventModeList.Random:
-			NumEvents = round(random.randf_range(StartingMinEvents + ((date.month - 1) * MinEventsScale), StartingMaxEvents + ((date.month - 1) * MaxEventsScale)))
-			#print("Events: ", NumEvents)
-			
-			for i in range(NumEvents):
-				var EventRange: int = daysInMonth[date.month] / NumEvents
-				var EventDay: int = (i * EventRange) + random.randi_range(0, EventRange)
-				if EventDay < 1:
-					EventDay = 1
-				EventArray.append(EventDay)
-				
-				var Event: Node = Events.get_children().pick_random()
-				EventDict[i] = Event
-				
-				print("Event added: ", Event, " @", EventArray[i])
-				
-		EventModeList.Scheduled:
-			NumEvents = 0
-			
-		EventModeList.ScheduledRandom:
-			NumEvents = 0
-			
+func ScheduleYear():
+	CurrentSchedule = Schedules.find_child(str(date.year)).schedule_dict
 
-func InitializeMonth(initdate: Dictionary):
+func ScheduleMonth():
+	if CurrentSchedule == null or CurrentSchedule.get(date.month) == null:
+		RandomEvents([-1])
+	else:
+	
+		var month = CurrentSchedule[date.month]
+		
+		if month[00] == "Random":
+			RandomEvents(month[01])
+		elif month[00] == "ScheduledRandom":
+			ScheduledRandomEvents(month[01])
+		elif month[00] == "Scheduled":
+			ScheduledEvents(month)
+
+func RandomEvents(eventRange : Array):
+	EventDict.clear()
+	
+	if eventRange[0] == -1:
+		print("Events: Full Random")
+		NumEvents = round(random.randf_range(StartingMinEvents + ((date.month - 1) * MinEventsScale), StartingMaxEvents + ((date.month - 1) * MaxEventsScale)))
+	else:
+		if not eventRange[0] is int or not eventRange[1] is int: 
+			push_error("Random month " + str(date.month) + " event range from " + str(eventRange[0]) + " to " + str(eventRange[1]) + " should be of type int!")
+		else:
+			print("Events: Random in range (" + str(eventRange[0]) + "," + str(eventRange[1]) + ")")
+			NumEvents = randi_range(eventRange[0], eventRange[1])
+	#print("Events: ", NumEvents)
+	
+	for i in range(NumEvents):
+		var EventRange: int = daysInMonth[date.month] / NumEvents
+		var EventDay: int = (i * EventRange) + random.randi_range(0, EventRange)
+		if EventDay < 1:
+			EventDay = 1
+		
+		var Event: Node = Events.get_children().pick_random()
+		EventDict[EventDay] = [Event, null]
+		
+		#print("Event added: ", Event, " @", EventDay)
+
+func ScheduledRandomEvents(eventDays : Array):
+	EventDict.clear()
+	
+	print("Events: Scheduled random on days " + str(eventDays))
+	for x in eventDays:
+		if not x is int:
+			push_error("Scheduled random month " + str(date.month) + " day \"" + str(x) + "\" should be of type int!")
+			
+		else:
+			EventArray.append(x)
+			
+			var Event: Node = Events.get_children().pick_random()
+			EventDict[x] = [Event, null]
+			
+			#print("Event added: ", Event, " @", x)
+
+func ScheduledEvents(sMonth : Dictionary):
+	EventDict.clear()
+	
+	print("Events: Scheduled month " + str(sMonth))
+	for x in sMonth:
+		if not x is int:
+			push_error("Month \"" + str(x) + "\" in year " + str(date.year) + " should be of type int!")
+			
+		elif x != 0:
+			if sMonth[x][0] is Array:
+				var pickEvent: int = randi_range(0, sMonth[x].size() - 1)
+				var Event: Node = Events.find_child(sMonth[x][pickEvent][0])
+				
+				if Event != null:
+					EventDict[x] = [Event, sMonth[x][pickEvent][1]]
+					
+					#print("Event added: ", Event, " @", x)
+					
+				else:
+					push_error("Scheduled month " + str(date.month) + " day " + str(x) + " option " + str(pickEvent) + ": " + str(sMonth[x][pickEvent][0]) + "is not an event that exists!")
+					
+			elif sMonth[x][0] is String:
+				var Event: Node = Events.find_child(sMonth[x][0])
+				
+				if Event != null:
+					EventDict[x] = [Event, sMonth[x][1]]
+					
+					#print("Event added: ", Event, " @", x)
+					
+				else:
+					push_error("Scheduled month " + str(date.month) + " day " + str(x) + ": " + str(sMonth[x]) + " is not an event that exists!")
+
+func CalendarMonth(initdate: Dictionary):
 	MonthYearLabel.text = monthNames[date.month] + " - " + str(date.year)
 	firstOfMonth = Time.get_datetime_dict_from_datetime_string(str(initdate.year) + "-" + str(initdate.month) + "-01", true)
-	print(firstOfMonth)
 	var maximum: int = firstOfMonth.weekday + daysInMonth[initdate.month]
 	if initdate.month == 2 and initdate.year % 4 == 0 and (initdate.year % 100 != 0 or initdate.year == 0):
 		print("leap")
