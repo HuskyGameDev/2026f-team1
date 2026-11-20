@@ -25,7 +25,7 @@ func _ready() -> void:
 func add_to_children(ctrl : Control) -> void: ## Use this instead of add_child for proper tree behavior
 	children_container.add_child(ctrl)
 
-func remove_from_children(ctrl : Control) -> void: ## Use this instead of add_child for proper tree behavior
+func remove_from_children(ctrl : Control) -> void: ## Use this instead of remove_child for proper tree behavior
 	children_container.remove_child(ctrl)
 
 func get_from_children(idx : int) -> Control: ## Use this instead of get_child for proper tree behavior
