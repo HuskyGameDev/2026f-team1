@@ -32,6 +32,13 @@ enum Job {
 	PR_Manager
 }
 
+enum GameResource {
+	Iron,
+	Steel,
+	Wood,
+	Furniture
+}
+
 # Also see job_get_category_id
 # If you get a weird category or an error for a job you implemented it may because you forgot to implement its ID and name here
 static func job_get_category_name(job : Job) -> String:
@@ -109,3 +116,31 @@ static func job_get_name(job : Job) -> String:
 		_:
 			push_error("Name not implemented for job ID " + str(job) + "! Returning empty string...")
 			return ""
+
+static func resource_get_name(res : GameResource) -> String:
+	match res:
+		GameResource.Iron:
+			return "Iron"
+		GameResource.Steel:
+			return "Steel"
+		GameResource.Wood:
+			return "Wood"
+		GameResource.Furniture:
+			return "Furniture"
+		_:
+			push_error("Name not implemented for resource ID " + str(res) + "! Returning empty string...")
+			return ""
+
+static func resource_get_icon(res : GameResource) -> CompressedTexture2D:
+	match res:
+		GameResource.Iron:
+			return preload("res://icon.svg")
+		GameResource.Steel:
+			return preload("res://icon.svg")
+		GameResource.Wood:
+			return preload("res://icon.svg")
+		GameResource.Furniture:
+			return preload("res://icon.svg")
+		_:
+			push_error("Icon not implemented for resource ID " + str(res) + "! Returning null...")
+			return null

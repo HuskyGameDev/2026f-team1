@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://5nifxany47cc"]
+
+[ext_resource type="Script" uid="uid://v5n5al2gtcou" path="res://Assets/Scripts/UI/Stockpile/resource_indicator.gd" id="1_tpktv"]
+[ext_resource type="Texture2D" uid="uid://dwq1isxwer43f" path="res://icon.svg" id="1_xda2j"]
+
+[node name="Resource Indicator" type="HBoxContainer" unique_id=1620825441 node_paths=PackedStringArray("icon_display", "count_display")]
+offset_right = 25.0
+offset_bottom = 20.0
+script = ExtResource("1_tpktv")
+icon_display = NodePath("Icon")
+count_display = NodePath("Count")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=51400277]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("1_xda2j")
+expand_mode = 1
+
+[node name="Count" type="Label" parent="." unique_id=1101027254]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "0"

@@ -5,7 +5,11 @@ signal employee_added(emp : Employee) ## Emits when an employee is added. Binds 
 signal employee_removed(emp : Employee) ## Emits when an employee is removed. Binds the added employee. Note that this occurs AFTER the removal so the index will be listed as -1
 signal before_employee_removed(emp : Employee) ## Like employee_removed, but is called before the removal instead of after. Useful if you want the index
 
-var employees : Array[Employee] ## This array should not be modified directly due to employee indexes needing to be updated! Please use the setters instead. (You can read it tho)
+var resource_counts : Array[int] ## To get the count of a particular resource, index this array with its ID (enum value)
+var employees : Array[Employee] ## The order of this array should not be modified directly due to employee indexes needing to be updated! Please use the setters instead. (You can read it or edit the individual employees tho)
+
+func _ready() -> void:
+	resource_counts.resize(Enums.GameResource.size())
 
 func _on_employee_modified(emp : Employee):
 	employee_modified.emit(emp)

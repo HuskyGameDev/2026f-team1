@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://d1im62adni5bv"]
 
 [ext_resource type="Script" uid="uid://dji0sg65qhmwq" path="res://Assets/Scripts/Core/main.gd" id="1_0m3kj"]
-[ext_resource type="Script" uid="uid://blbgxenhwoewv" path="res://Assets/Scripts/UI/Main/hr.gd" id="1_38sx5"]
+[ext_resource type="Script" uid="uid://blbgxenhwoewv" path="res://Assets/Scripts/UI/Main/taskbar_button.gd" id="1_38sx5"]
 [ext_resource type="Script" uid="uid://5quell3ovxvi" path="res://Assets/Scripts/UI/RnD/r&d.gd" id="2_0m3kj"]
 [ext_resource type="PackedScene" uid="uid://d0u1616mnjhp7" path="res://Assets/Scenes/hr_menu.tscn" id="4_32q2e"]
+[ext_resource type="PackedScene" uid="uid://bvtmf0lnt580q" path="res://Assets/Scenes/stockpile_menu.tscn" id="5_oufd1"]
 [ext_resource type="PackedScene" uid="uid://jjg5epoje2jf" path="res://Assets/Scenes/RnDArea.tscn" id="6_oufd1"]
 
-[node name="Main" type="CanvasLayer" unique_id=1113739007 node_paths=PackedStringArray("hr_menu")]
+[node name="Main" type="CanvasLayer" unique_id=1113739007 node_paths=PackedStringArray("hr_menu", "stockpile_menu", "hr_taskbar_button", "stockpile_taskbar_button")]
 script = ExtResource("1_0m3kj")
 hr_menu = NodePath("HR Menu")
+stockpile_menu = NodePath("Stockpile Menu")
+hr_taskbar_button = NodePath("Menu Tabs/HR")
+stockpile_taskbar_button = NodePath("Menu Tabs/Stockpile")
 
 [node name="Menu Tabs" type="HBoxContainer" parent="." unique_id=1714804118]
 anchors_preset = 2
@@ -18,12 +22,11 @@ offset_top = -60.0
 offset_right = 458.0
 grow_vertical = 0
 
-[node name="HR" type="Button" parent="Menu Tabs" unique_id=1491577358 node_paths=PackedStringArray("hr_menu")]
+[node name="HR" type="Button" parent="Menu Tabs" unique_id=1491577358]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Human Resources"
 script = ExtResource("1_38sx5")
-hr_menu = NodePath("../../HR Menu")
 
 [node name="R&D" type="Button" parent="Menu Tabs" unique_id=1644264605 node_paths=PackedStringArray("rnd_menu")]
 custom_minimum_size = Vector2(150, 0)
@@ -31,6 +34,12 @@ layout_mode = 2
 text = "R&D"
 script = ExtResource("2_0m3kj")
 rnd_menu = NodePath("../../RnDArea")
+
+[node name="Stockpile" type="Button" parent="Menu Tabs" unique_id=1474939410]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Stockpile Monitor"
+script = ExtResource("1_38sx5")
 
 [node name="Map" type="Button" parent="Menu Tabs" unique_id=806792098]
 custom_minimum_size = Vector2(150, 0)
@@ -43,6 +52,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Stockpile Menu" parent="." unique_id=1007617109 instance=ExtResource("5_oufd1")]
 
 [node name="RnDArea" parent="." unique_id=1394764776 instance=ExtResource("6_oufd1")]
 visible = false
