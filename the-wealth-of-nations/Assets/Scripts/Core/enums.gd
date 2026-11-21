@@ -33,12 +33,31 @@ enum Job {
 }
 
 enum GameResource {
+	Money,
 	Iron,
 	Steel,
 	Wood,
 	Furniture
 }
 
+enum Building {
+	Iron_Mine,
+	Steel_Foundry,
+	Timber_Mill,
+	Furniture_Factory
+}
+
+enum Region {
+	North_America,
+	South_America,
+	Africa,
+	Europe,
+	Asia,
+	Australia,
+	Antarctica
+}
+
+#region Job Methods
 # Also see job_get_category_id
 # If you get a weird category or an error for a job you implemented it may because you forgot to implement its ID and name here
 static func job_get_category_name(job : Job) -> String:
@@ -116,9 +135,12 @@ static func job_get_name(job : Job) -> String:
 		_:
 			push_error("Name not implemented for job ID " + str(job) + "! Returning empty string...")
 			return ""
-
+#endregion
+#region Resource Methods
 static func resource_get_name(res : GameResource) -> String:
 	match res:
+		GameResource.Money:
+			return "Money"
 		GameResource.Iron:
 			return "Iron"
 		GameResource.Steel:
@@ -133,6 +155,8 @@ static func resource_get_name(res : GameResource) -> String:
 
 static func resource_get_icon(res : GameResource) -> CompressedTexture2D:
 	match res:
+		GameResource.Money:
+			return preload("res://icon.svg")
 		GameResource.Iron:
 			return preload("res://icon.svg")
 		GameResource.Steel:
@@ -144,3 +168,93 @@ static func resource_get_icon(res : GameResource) -> CompressedTexture2D:
 		_:
 			push_error("Icon not implemented for resource ID " + str(res) + "! Returning null...")
 			return null
+#endregion
+#region Building Methods
+static func building_get_name(bui : Building) -> String:
+	match bui:
+		Building.Iron_Mine:
+			return "Iron Mine"
+		Building.Steel_Foundry:
+			return "Steel Foundry"
+		Building.Timber_Mill:
+			return "Timber Mill"
+		Building.Furniture_Factory:
+			return "Furniture Factory"
+		_:
+			push_error("Name not implemented for building ID " + str(bui) + "! Returning empty string...")
+			return ""
+
+static func building_get_recipe(bui : Building) -> Recipe:
+	match bui:
+		Building.Iron_Mine:
+			return Recipe.new(
+				[ # Inputs
+					
+				], [ # Outputs
+					[GameResource.Iron, 1]
+				], 1.5 # Time
+			)
+		Building.Steel_Foundry:
+			return Recipe.new(
+				[ # Inputs
+					[GameResource.Iron, 2]
+				], [ # Outputs
+					[GameResource.Steel, 1]
+				], 3.0 # Time
+			)
+		Building.Timber_Mill:
+			return Recipe.new(
+				[ # Inputs
+					
+				], [ # Outputs
+					[GameResource.Wood, 1]
+				], 2.0 # Time
+			)
+		Building.Furniture_Factory:
+			return Recipe.new(
+				[ # Inputs
+					[GameResource.Steel, 1],
+					[GameResource.Wood, 3]
+				], [ # Outputs
+					[GameResource.Furniture, 1]
+				], 5.0 # Time
+			)
+		_:
+			push_error("Recipe not implemented for building ID " + str(bui) + "! Returning null...")
+			return null
+
+static func building_get_cost(bui : Building) -> int:
+	match bui:
+		Building.Iron_Mine:
+			return 10000
+		Building.Steel_Foundry:
+			return 25000
+		Building.Timber_Mill:
+			return 15000
+		Building.Furniture_Factory:
+			return 40000
+		_:
+			push_error("Cost not implemented for building ID " + str(bui) + "! Returning zero...")
+			return 0
+#endregion
+#region Region Methods
+static func region_get_name(reg : Region) -> String:
+	match reg:
+		Region.North_America:
+			return "North America"
+		Region.South_America:
+			return "South America"
+		Region.Africa:
+			return "Africa"
+		Region.Europe:
+			return "Europe"
+		Region.Asia:
+			return "Asia"
+		Region.Australia:
+			return "Australia"
+		Region.Antarctica:
+			return "Antarctica"
+		_:
+			push_error("Name not implemented for region ID " + str(reg) + "! Returning empty string...")
+			return ""
+#endregion

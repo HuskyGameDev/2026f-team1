@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cn6jbtlcx8pnp"]
+
+[ext_resource type="Script" uid="uid://c164jwsmpj3ol" path="res://Assets/Scripts/UI/Region View/recipe_resource_indicator.gd" id="1_d8nal"]
+[ext_resource type="Texture2D" uid="uid://dwq1isxwer43f" path="res://icon.svg" id="2_vnv4y"]
+
+[node name="Resource Indicator" type="HBoxContainer" unique_id=1620825441 node_paths=PackedStringArray("icon_display", "count_display")]
+offset_right = 25.0
+offset_bottom = 20.0
+script = ExtResource("1_d8nal")
+icon_display = NodePath("Icon")
+count_display = NodePath("Count")
+
+[node name="Count" type="Label" parent="." unique_id=1101027254]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "0"
+
+[node name="Icon" type="TextureRect" parent="." unique_id=51400277]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_vnv4y")
+expand_mode = 1

@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://c7an3ey2xexxl"]
+
+[ext_resource type="Texture2D" uid="uid://cvlc5f43f2bmv" path="res://Assets/Textures/LongIsland-Carp.jpg" id="1_m5t31"]
+[ext_resource type="Script" uid="uid://b0q5inluh228v" path="res://Assets/Scripts/UI/Region View/building_display.gd" id="1_v4jkj"]
+[ext_resource type="PackedScene" uid="uid://cn6jbtlcx8pnp" path="res://Assets/Scenes/recipe_resource_indicator.tscn" id="2_hx8yx"]
+
+[node name="Building Display" type="PanelContainer" unique_id=309381873 node_paths=PackedStringArray("label", "quantity_label", "progress_bar", "inputs_container", "outputs_container", "build_button")]
+script = ExtResource("1_v4jkj")
+recipe_resource_indicator_scene = ExtResource("2_hx8yx")
+label = NodePath("Contents/Header/Label")
+quantity_label = NodePath("Contents/Header/Quantity")
+progress_bar = NodePath("Contents/Progress")
+inputs_container = NodePath("Contents/Recipe/Inputs Wrapper/Inputs")
+outputs_container = NodePath("Contents/Recipe/Outputs Wrapper/Outputs")
+build_button = NodePath("Contents/Build")
+
+[node name="Contents" type="VBoxContainer" parent="." unique_id=1192936141]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="Contents" unique_id=1749526061]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Contents/Header" unique_id=73815427]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "You Shouldn't Be Seeing This..."
+horizontal_alignment = 1
+
+[node name="Quantity" type="Label" parent="Contents/Header" unique_id=736559903]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "x100"
+horizontal_alignment = 1
+
+[node name="Progress" type="ProgressBar" parent="Contents" unique_id=1795927033]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 2
+max_value = 1.0
+show_percentage = false
+
+[node name="Recipe" type="HBoxContainer" parent="Contents" unique_id=2138569259]
+layout_mode = 2
+alignment = 1
+
+[node name="Inputs Wrapper" type="Control" parent="Contents/Recipe" unique_id=1293293017]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Inputs" type="HBoxContainer" parent="Contents/Recipe/Inputs Wrapper" unique_id=636038231]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Arrow That Isn\'t An Arrow Yet" type="TextureRect" parent="Contents/Recipe" unique_id=1698584634]
+custom_minimum_size = Vector2(40, 10)
+layout_mode = 2
+texture = ExtResource("1_m5t31")
+expand_mode = 1
+
+[node name="Outputs Wrapper" type="Control" parent="Contents/Recipe" unique_id=2083052749]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Outputs" type="HBoxContainer" parent="Contents/Recipe/Outputs Wrapper" unique_id=855710605]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Build" type="Button" parent="Contents" unique_id=2098563136]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Build (0$)"
