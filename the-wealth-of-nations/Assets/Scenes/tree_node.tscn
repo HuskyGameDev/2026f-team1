@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://bqseskxvo72y1"]
 
-[ext_resource type="Script" uid="uid://dlnpbn2p26cg8" path="res://Assets/Scripts/tree_node.gd" id="1_jdicq"]
+[ext_resource type="Script" uid="uid://dlnpbn2p26cg8" path="res://Assets/Scripts/UI/HR/tree_node.gd" id="1_jdicq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3j3dn"]
 content_margin_left = 35.0
 
 [node name="Tree Node" type="VBoxContainer" unique_id=2069796481 node_paths=PackedStringArray("display", "expand_button", "label_display", "children_padding", "children_container")]
-offset_right = 269.0
-offset_bottom = 27.0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 369.0
+offset_bottom = 127.0
 script = ExtResource("1_jdicq")
 display = NodePath("Display")
 expand_button = NodePath("Display/Expand")
@@ -30,7 +32,6 @@ layout_mode = 2
 text = "lfsdkgjsdl;fjkgsdf;ljkgsdf;lkgjsd;flg"
 
 [node name="Children Container" type="PanelContainer" parent="." unique_id=509416890]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3j3dn")
