@@ -12,6 +12,7 @@ dest_files=["res://.godot/imported/PTSansNarrow-Bold.ttf-4829b9eb6e52c5e2764598e
 
 [params]
 
+Rendering=null
 antialiasing=1
 generate_mipmaps=false
 disable_embedded_bitmaps=true
@@ -25,7 +26,9 @@ hinting=3
 subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
+Fallbacks=null
 fallbacks=[]
+Compress=null
 compress=true
 preload=[]
 language_support={}
