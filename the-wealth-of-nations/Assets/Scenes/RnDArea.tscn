@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://jjg5epoje2jf"]
+[gd_scene load_steps=0 format=3 uid="uid://jjg5epoje2jf"]
 
 [ext_resource type="PackedScene" uid="uid://d1foq8cbl5e7e" path="res://Assets/Scenes/TechTree/TreeVis.tscn" id="1_72hpm"]
 [ext_resource type="Script" uid="uid://dhask22ydledx" path="res://Assets/Scripts/UI/RnD/rn_d_area.gd" id="1_f7a2a"]

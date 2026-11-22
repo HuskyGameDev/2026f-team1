@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bvtmf0lnt580q"]
+[gd_scene load_steps=0 format=3 uid="uid://bvtmf0lnt580q"]
 
 [ext_resource type="Script" uid="uid://dhwb5akic6tlq" path="res://Assets/Scripts/UI/Stockpile/stockpile_menu.gd" id="1_ajep1"]
 [ext_resource type="PackedScene" uid="uid://5nifxany47cc" path="res://Assets/Scenes/resource_indicator.tscn" id="2_i1ibu"]

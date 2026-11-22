@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bwbxjkbko24kg"]
+[gd_scene load_steps=0 format=3 uid="uid://bwbxjkbko24kg"]
 
 [ext_resource type="Script" uid="uid://dyxfr5tfj5qfv" path="res://Assets/Scripts/UI/Region View/region_menu.gd" id="1_1vxj3"]
 [ext_resource type="PackedScene" uid="uid://c7an3ey2xexxl" path="res://Assets/Scenes/building_display.tscn" id="2_jd0nr"]

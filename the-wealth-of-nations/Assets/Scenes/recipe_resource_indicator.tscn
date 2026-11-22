@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cn6jbtlcx8pnp"]
+[gd_scene load_steps=0 format=3 uid="uid://cn6jbtlcx8pnp"]
 
 [ext_resource type="Script" uid="uid://c164jwsmpj3ol" path="res://Assets/Scripts/UI/Region View/recipe_resource_indicator.gd" id="1_d8nal"]
 [ext_resource type="Texture2D" uid="uid://dwq1isxwer43f" path="res://icon.svg" id="2_vnv4y"]

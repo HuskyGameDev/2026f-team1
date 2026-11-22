@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://diu5r31mn657s"]
+[gd_scene load_steps=0 format=3 uid="uid://diu5r31mn657s"]
 
 [ext_resource type="Script" uid="uid://dtm4q1oidso6x" path="res://Assets/Scripts/UI/RnD/tree_doc.gd" id="1_h7m12"]
 [ext_resource type="Texture2D" uid="uid://dwq1isxwer43f" path="res://icon.svg" id="1_nt6ac"]

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c7an3ey2xexxl"]
+[gd_scene load_steps=0 format=3 uid="uid://c7an3ey2xexxl"]
 
 [ext_resource type="Texture2D" uid="uid://cvlc5f43f2bmv" path="res://Assets/Textures/LongIsland-Carp.jpg" id="1_m5t31"]
 [ext_resource type="Script" uid="uid://b0q5inluh228v" path="res://Assets/Scripts/UI/Region View/building_display.gd" id="1_v4jkj"]

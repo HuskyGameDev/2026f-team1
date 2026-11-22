@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://drsdoynx54vrr"]
+[gd_scene load_steps=0 format=3 uid="uid://drsdoynx54vrr"]
 
 [ext_resource type="Script" uid="uid://bs2sqncrt2klp" path="res://Assets/Scripts/UI/RnD/node.gd" id="1_8i61d"]
 [ext_resource type="AudioStream" uid="uid://c0q07jmg2s7cd" path="res://Assets/Sound/enter.wav" id="2_e54xp"]

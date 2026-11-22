@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bgcyjnb2xxs61"]
+[gd_scene load_steps=0 format=3 uid="uid://bgcyjnb2xxs61"]
 
 [ext_resource type="Texture2D" uid="uid://ck2fu37jvc8gu" path="res://Assets/Textures/NodePointer.png" id="1_qwbg0"]
 [ext_resource type="Script" uid="uid://cf2dt4pk87ehj" path="res://Assets/Scripts/UI/RnD/node_pointer.gd" id="1_x0gua"]
