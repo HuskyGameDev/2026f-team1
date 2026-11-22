@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bwbxjkbko24kg"]
+
+[ext_resource type="Script" uid="uid://dyxfr5tfj5qfv" path="res://Assets/Scripts/UI/Region View/region_menu.gd" id="1_1vxj3"]
+[ext_resource type="PackedScene" uid="uid://c7an3ey2xexxl" path="res://Assets/Scenes/building_display.tscn" id="2_jd0nr"]
+
+[node name="Region Menu" type="PanelContainer" unique_id=498165726 node_paths=PackedStringArray("building_list")]
+script = ExtResource("1_1vxj3")
+building_display_scene = ExtResource("2_jd0nr")
+building_list = NodePath("Building List")
+
+[node name="Building List" type="VBoxContainer" parent="." unique_id=325530226]
+layout_mode = 2

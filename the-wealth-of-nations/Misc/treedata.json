@@ -1,0 +1,56 @@
+{
+	"Defaults": {
+		"draggable": false
+	},
+	"Nodes": {
+		"Node1": {
+			"name": "Long Island Carp",
+			"subtitle": [
+				"Random Garbage in an array!",
+				"Random Garbage in an array!",
+				"Random Garbage in an array!",
+				"Oops! LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONG GARBAGE WRAPPING!",
+				"Random Garbage in an array!",
+				"Random Garbage in an array!",
+				"Random Garbage in an array!",
+                "Random Garbage in an array!"
+			],
+			"document": {
+				"header": "@name",
+				"image": "res://Assets/Textures/LongIsland-Carp.jpg",
+				"text": [
+					"The term carp (pl.: carp) is a generic common name for numerous species of freshwater fish from the family Cyprinidae, a very large clade of ray-finned fish mostly native to Eurasia. While carp are prized quarries and are valued (even commercially cultivated) as both food and ornamental fish in many parts of the Old World,[1] they are considered trash fish and invasive pests in many parts of Africa, Australia and most of the United States."
+				]
+			},
+			"pos": [100, 200]
+		},
+		"Node2": {
+			"name": "Node2",
+			"document": {
+				"header": "@name",
+				"image": "res://Assets/Textures/box.svg",
+				"text": [
+					"Some entry text.",
+                    "Line break!"
+				]
+			},
+			"pos": [200, 0]
+		},
+		"Node3": {
+			"name": "Very Long Node 3 Name",
+			"pos": [-600, 0],
+			"subtitle": "Some crazy amounts of overflow on this tiny recursive sub-tree thingy. This currently breaks things...",
+		},
+		"Node4": {
+			"name": "Node4",
+			"subtitle": "[b][color=cc3232]Colorful Garbage![/color][/b]",
+			"pos": [0, -200]
+		}
+	},
+	"Connections": [
+		["Node1", "Node4"],
+		["Node1", "Node2"],
+		["Node2", "Node4"],
+		["Node3", "Node3"],
+	]
+}

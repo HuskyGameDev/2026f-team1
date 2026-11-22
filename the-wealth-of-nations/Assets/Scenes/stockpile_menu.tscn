@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bvtmf0lnt580q"]
+
+[ext_resource type="Script" uid="uid://dhwb5akic6tlq" path="res://Assets/Scripts/UI/Stockpile/stockpile_menu.gd" id="1_ajep1"]
+[ext_resource type="PackedScene" uid="uid://5nifxany47cc" path="res://Assets/Scenes/resource_indicator.tscn" id="2_i1ibu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f0fev"]
+
+[node name="Stockpile Menu" type="PanelContainer" unique_id=1007617109 node_paths=PackedStringArray("indicator_container")]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f0fev")
+script = ExtResource("1_ajep1")
+indicator_scene = ExtResource("2_i1ibu")
+indicator_container = NodePath("Items")
+
+[node name="Items" type="VBoxContainer" parent="." unique_id=2019585373]
+layout_mode = 2

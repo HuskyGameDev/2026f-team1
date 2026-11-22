@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://jjg5epoje2jf"]
+
+[ext_resource type="PackedScene" uid="uid://d1foq8cbl5e7e" path="res://Assets/Scenes/TechTree/TreeVis.tscn" id="1_72hpm"]
+[ext_resource type="Script" uid="uid://dhask22ydledx" path="res://Assets/Scripts/UI/RnD/rn_d_area.gd" id="1_f7a2a"]
+[ext_resource type="PackedScene" uid="uid://diu5r31mn657s" path="res://Assets/Scenes/TechTree/TreeDoc.tscn" id="1_tctp0"]
+
+[node name="RnDArea" type="Control" unique_id=1394764776]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f7a2a")
+
+[node name="TreeVis" parent="." unique_id=1124068504 instance=ExtResource("1_72hpm")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TreeDoc" parent="." unique_id=487062723 instance=ExtResource("1_tctp0")]
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_right = 0.0
+offset_right = 300.0
+grow_horizontal = 1
